@@ -25,17 +25,17 @@ public class ScoreCounter : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Ball"))
-        {
-            Invoke(nameof(BallSpawnDelayer), delayTime);   
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Ball"))
+    //    {
+    //        Invoke(nameof(BallSpawnDelayer), delayTime);   
+    //    }
+    //}
 
-    void BallSpawnDelayer()
-    {
-        Destroy(otherCollider.gameObject);
-        spawnBall.SpawnBasketBall();
-    }
+    //void BallSpawnDelayer()
+    //{
+    //    Destroy(otherCollider.gameObject);
+    //    spawnBall.SpawnBasketBall();
+    //}
 }
