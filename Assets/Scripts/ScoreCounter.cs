@@ -1,41 +1,23 @@
+using TMPro;
 using UnityEngine;
 
 public class ScoreCounter : MonoBehaviour
 {
     [SerializeField] int score;
-    [SerializeField] int delayTime;
-
-    SpawnBall spawnBall;
-    Collider otherCollider;
-
+    [SerializeField] TextMeshProUGUI scoreText;
 
     void Start()
     {
-        spawnBall = FindFirstObjectByType<SpawnBall>();
         score = 0;
+        scoreText.text = "";
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Ball"))
         {
-            otherCollider = other.gameObject.GetComponent<Collider>();
             score++;
-            
+            scoreText.text = score.ToString();
         }
     }
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Ball"))
-    //    {
-    //        Invoke(nameof(BallSpawnDelayer), delayTime);   
-    //    }
-    //}
-
-    //void BallSpawnDelayer()
-    //{
-    //    Destroy(otherCollider.gameObject);
-    //    spawnBall.SpawnBasketBall();
-    //}
 }
