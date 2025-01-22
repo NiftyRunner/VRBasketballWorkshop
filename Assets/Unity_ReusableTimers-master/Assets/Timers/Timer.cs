@@ -21,11 +21,12 @@ public class Timer : MonoBehaviour {
    private UnityAction onTimerEndAction ;
    private UnityAction<bool> onTimerPauseAction ;
 
-   private void Awake () {
-      ResetTimer () ;
-   }
+    private void Awake()
+    {
+        ResetTimer();
+    }
 
-   private void ResetTimer () {
+    public void ResetTimer () {
       uiText.text = "00:00" ;
       uiFillImage.fillAmount = 0f ;
 
