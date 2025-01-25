@@ -8,26 +8,20 @@ public class ScoreCounter : MonoBehaviour
     [SerializeField] Transform particleSpawnPosition;
     [SerializeField] ParticleSystem hoopParticles;
 
-    GameObject finalScoreUI;
+    [SerializeField] GameObject finalScoreUI;
+    
     TextMeshProUGUI finalScoreText;
 
     void Start()
     {
         score = 0;
         scoreText.text = "0";
+        finalScoreText = finalScoreUI.GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
     {
-        if(finalScoreUI == null)
-        {
-            finalScoreUI = GameObject.FindGameObjectWithTag("FinalScoreUI");
-            finalScoreText = finalScoreUI.GetComponent<TextMeshProUGUI>();
-        }
-        else if(finalScoreUI != null) 
-        {
-            finalScoreText.text = score.ToString();
-        }
+        finalScoreText.text = score.ToString();
     }
 
     private void OnTriggerExit(Collider other)
